@@ -26,7 +26,38 @@
           <button class="btn">+ Add Project</button>
         </div>
       </div>
-      <div class="main-title"></div>
+      <div class="main">
+        <div class="main-title"></div>
+        <div class="main-content">
+          <div class="form" style="display: none">
+            <div class="head-form">
+              <h1 id="form-title">New Task</h1>
+              <button id="close-form-btn">x</button>
+            </div>
+            <form action="" id="addTaskForm">
+              <label for="task-name">Task Name:</label>
+              <input type="text" id="task-name" />
+              <label for="date">Deadline:</label>
+              <input type="date" id="date" />
+              <label for="priority">Priority</label>
+              <select name="" id="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+              <label for="description">Description:</label>
+              <textarea
+                name=""
+                id="description"
+                cols="30"
+                rows="10"
+                style="resize: none"
+              ></textarea>
+              <button type="submit" id="addTaskBtn">Add Task</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
