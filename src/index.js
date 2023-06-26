@@ -1,1 +1,3 @@
-console.log("hello world");
+import UI from "./UI";
+
+document.addEventListener("DOMContentLoaded", UI.homePage);

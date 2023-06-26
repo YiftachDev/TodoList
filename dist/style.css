@@ -64,5 +64,17 @@ body {
   width: 300px;
   text-align: left;
   padding: 8px;
-  border-radius: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.container {
+  display: flex;
+}
+
+#inbox {
+  margin-left: 100px;
+  margin-top: 30px;
+  border-bottom: 1px solid silver;
+  height: 40px;
+  width: 50%;
 }
