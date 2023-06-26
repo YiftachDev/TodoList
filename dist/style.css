@@ -71,10 +71,32 @@ body {
   display: flex;
 }
 
-#inbox {
+.main-title {
+  display: flex;
   margin-left: 100px;
   margin-top: 30px;
   border-bottom: 1px solid silver;
   height: 40px;
   width: 50%;
+}
+
+#inbox {
+  margin-right: auto;
+}
+
+#add-task-btn {
+  background-color: #ddd;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: 2.5px solid rgb(75, 138, 255);
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+#add-task-btn:hover {
+  background-color: rgb(75, 138, 255);
+  color: white;
+  cursor: pointer;
 }

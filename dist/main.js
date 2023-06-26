@@ -16,7 +16,7 @@
   \*******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ UI)\n/* harmony export */ });\nclass UI {\r\n  static homePage() {\r\n    const container = document.querySelector(\".container\");\r\n    container.innerHTML += `<h1 id=\"inbox\">Inbox</h1>`;\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://todolist/./src/UI.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ UI)\n/* harmony export */ });\nclass UI {\r\n  static createAddTodoButton() {\r\n    const mainTitle = document.querySelector(\".main-title\");\r\n    mainTitle.innerHTML += `<button id=\"add-task-btn\">+</button>`;\r\n  }\r\n\r\n  static homePage() {\r\n    const mainTitle = document.querySelector(\".main-title\");\r\n    mainTitle.innerHTML += `<h1 id=\"inbox\">Inbox</h1>`;\r\n    UI.createAddTodoButton();\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://todolist/./src/UI.js?");
 
 /***/ }),
 
