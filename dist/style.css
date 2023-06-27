@@ -160,3 +160,51 @@ label {
   cursor: pointer;
   font-size: 30px;
 }
+
+.task {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* border: 1px solid black; */
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.task-content {
+  margin-right: auto;
+}
+
+.task-title {
+  text-decoration: underline;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.task-description {
+  color: #888;
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+}
+
+.task-deadline {
+  margin-right: 8px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.edit-button,
+.delete-button {
+  margin-left: 10px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ff6f00;
+  color: #ffffff;
+  cursor: pointer;
+}

@@ -7,13 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const openFormBtn = document.querySelector("#open-form-btn");
   const closeFormBtn = document.querySelector("#close-form-btn");
   const submitFormBtn = document.querySelector("#addTaskBtn");
+
   openFormBtn.addEventListener("click", () => {
     UI.openTaskForm();
-    console.log(submitFormBtn);
-    submitFormBtn.addEventListener("click", e => {
-      e.preventDefault();
-      UI.handleForm(Task, inbox);
-    });
   });
+
+  submitFormBtn.addEventListener("click", e => {
+    e.preventDefault();
+    UI.handleForm(Task, inbox);
+  });
+
   closeFormBtn.addEventListener("click", UI.closeTaskForm);
 });
