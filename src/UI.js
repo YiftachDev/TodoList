@@ -19,4 +19,22 @@ export default class UI {
     const addTaskForm = document.querySelector(".form");
     addTaskForm.style.display = "none";
   }
+
+  static handleForm(taskClass, inbox) {
+    const task = {
+      title: document.querySelector("#task-name").value,
+      deadLine: document.querySelector("#date").value,
+      priority: document.querySelector("#priority").value,
+      description: document.querySelector("#description").value,
+    };
+    let todo = new taskClass(
+      task.title,
+      task.description,
+      task.deadLine,
+      task.priority
+    );
+    inbox.addTodo(todo);
+    console.log(inbox.tasks);
+    UI.closeTaskForm();
+  }
 }

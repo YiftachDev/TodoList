@@ -10,13 +10,33 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/Project.js":
+/*!************************!*\
+  !*** ./src/Project.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   inbox: () => (/* binding */ inbox)\n/* harmony export */ });\nclass Project {\r\n  constructor(name) {\r\n    this.name = name;\r\n    this.tasks = [];\r\n  }\r\n  addTodo(task) {\r\n    this.tasks.push(task);\r\n  }\r\n}\r\n\r\nlet inbox = new Project(\"inbox\");\r\n\r\n\r\n\n\n//# sourceURL=webpack://todolist/./src/Project.js?");
+
+/***/ }),
+
+/***/ "./src/Todo.js":
+/*!*********************!*\
+  !*** ./src/Todo.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Task)\n/* harmony export */ });\nclass Task {\r\n  constructor(title, description, deadline, priority) {\r\n    this.title = title;\r\n    this.description = description;\r\n    this.deadline = deadline;\r\n    this.priority = priority;\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://todolist/./src/Todo.js?");
+
+/***/ }),
+
 /***/ "./src/UI.js":
 /*!*******************!*\
   !*** ./src/UI.js ***!
   \*******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ UI)\n/* harmony export */ });\nclass UI {\r\n  static createAddTodoButton() {\r\n    const mainTitle = document.querySelector(\".main-title\");\r\n    mainTitle.innerHTML += `<button id=\"open-form-btn\">+</button>`;\r\n  }\r\n\r\n  static homePage() {\r\n    const mainTitle = document.querySelector(\".main-title\");\r\n    mainTitle.innerHTML += `<h1 id=\"inbox\">Inbox</h1>`;\r\n    UI.createAddTodoButton();\r\n  }\r\n\r\n  static openTaskForm() {\r\n    const addTaskForm = document.querySelector(\".form\");\r\n    addTaskForm.style.display = \"block\";\r\n  }\r\n\r\n  static closeTaskForm() {\r\n    const addTaskForm = document.querySelector(\".form\");\r\n    addTaskForm.style.display = \"none\";\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://todolist/./src/UI.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ UI)\n/* harmony export */ });\nclass UI {\r\n  static createAddTodoButton() {\r\n    const mainTitle = document.querySelector(\".main-title\");\r\n    mainTitle.innerHTML += `<button id=\"open-form-btn\">+</button>`;\r\n  }\r\n\r\n  static homePage() {\r\n    const mainTitle = document.querySelector(\".main-title\");\r\n    mainTitle.innerHTML += `<h1 id=\"inbox\">Inbox</h1>`;\r\n    UI.createAddTodoButton();\r\n  }\r\n\r\n  static openTaskForm() {\r\n    const addTaskForm = document.querySelector(\".form\");\r\n    addTaskForm.style.display = \"block\";\r\n  }\r\n\r\n  static closeTaskForm() {\r\n    const addTaskForm = document.querySelector(\".form\");\r\n    addTaskForm.style.display = \"none\";\r\n  }\r\n\r\n  static handleForm(taskClass, inbox) {\r\n    const task = {\r\n      title: document.querySelector(\"#task-name\").value,\r\n      deadLine: document.querySelector(\"#date\").value,\r\n      priority: document.querySelector(\"#priority\").value,\r\n      description: document.querySelector(\"#description\").value,\r\n    };\r\n    let todo = new taskClass(\r\n      task.title,\r\n      task.description,\r\n      task.deadLine,\r\n      task.priority\r\n    );\r\n    inbox.addTodo(todo);\r\n    console.log(inbox.tasks);\r\n    UI.closeTaskForm();\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://todolist/./src/UI.js?");
 
 /***/ }),
 
@@ -26,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UI */ \"./src/UI.js\");\n\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", () => {\r\n  _UI__WEBPACK_IMPORTED_MODULE_0__[\"default\"].homePage();\r\n  const openFormBtn = document.querySelector(\"#open-form-btn\");\r\n  const closeFormBtn = document.querySelector(\"#close-form-btn\");\r\n  openFormBtn.addEventListener(\"click\", _UI__WEBPACK_IMPORTED_MODULE_0__[\"default\"].openTaskForm);\r\n  closeFormBtn.addEventListener(\"click\", _UI__WEBPACK_IMPORTED_MODULE_0__[\"default\"].closeTaskForm);\r\n});\r\n\n\n//# sourceURL=webpack://todolist/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UI */ \"./src/UI.js\");\n/* harmony import */ var _Project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Project */ \"./src/Project.js\");\n/* harmony import */ var _Todo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Todo */ \"./src/Todo.js\");\n\r\n\r\n\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", () => {\r\n  _UI__WEBPACK_IMPORTED_MODULE_0__[\"default\"].homePage();\r\n  const openFormBtn = document.querySelector(\"#open-form-btn\");\r\n  const closeFormBtn = document.querySelector(\"#close-form-btn\");\r\n  const submitFormBtn = document.querySelector(\"#addTaskBtn\");\r\n  openFormBtn.addEventListener(\"click\", () => {\r\n    _UI__WEBPACK_IMPORTED_MODULE_0__[\"default\"].openTaskForm();\r\n    console.log(submitFormBtn);\r\n    submitFormBtn.addEventListener(\"click\", e => {\r\n      e.preventDefault();\r\n      _UI__WEBPACK_IMPORTED_MODULE_0__[\"default\"].handleForm(_Todo__WEBPACK_IMPORTED_MODULE_2__[\"default\"], _Project__WEBPACK_IMPORTED_MODULE_1__.inbox);\r\n    });\r\n  });\r\n  closeFormBtn.addEventListener(\"click\", _UI__WEBPACK_IMPORTED_MODULE_0__[\"default\"].closeTaskForm);\r\n});\r\n\n\n//# sourceURL=webpack://todolist/./src/index.js?");
 
 /***/ })
 
