@@ -14,4 +14,9 @@ export default class UI {
     const addTaskForm = document.querySelector(".form");
     addTaskForm.style.display = "block";
   }
+
+  static closeTaskForm() {
+    const addTaskForm = document.querySelector(".form");
+    addTaskForm.style.display = "none";
+  }
 }

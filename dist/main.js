@@ -16,7 +16,7 @@
   \*******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ UI)\n/* harmony export */ });\nclass UI {\r\n  static createAddTodoButton() {\r\n    const mainTitle = document.querySelector(\".main-title\");\r\n    mainTitle.innerHTML += `<button id=\"open-form-btn\">+</button>`;\r\n  }\r\n\r\n  static homePage() {\r\n    const mainTitle = document.querySelector(\".main-title\");\r\n    mainTitle.innerHTML += `<h1 id=\"inbox\">Inbox</h1>`;\r\n    UI.createAddTodoButton();\r\n  }\r\n\r\n  static openTaskForm() {\r\n    const addTaskForm = document.querySelector(\".form\");\r\n    addTaskForm.style.display = \"block\";\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://todolist/./src/UI.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ UI)\n/* harmony export */ });\nclass UI {\r\n  static createAddTodoButton() {\r\n    const mainTitle = document.querySelector(\".main-title\");\r\n    mainTitle.innerHTML += `<button id=\"open-form-btn\">+</button>`;\r\n  }\r\n\r\n  static homePage() {\r\n    const mainTitle = document.querySelector(\".main-title\");\r\n    mainTitle.innerHTML += `<h1 id=\"inbox\">Inbox</h1>`;\r\n    UI.createAddTodoButton();\r\n  }\r\n\r\n  static openTaskForm() {\r\n    const addTaskForm = document.querySelector(\".form\");\r\n    addTaskForm.style.display = \"block\";\r\n  }\r\n\r\n  static closeTaskForm() {\r\n    const addTaskForm = document.querySelector(\".form\");\r\n    addTaskForm.style.display = \"none\";\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://todolist/./src/UI.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UI */ \"./src/UI.js\");\n\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", () => {\r\n  _UI__WEBPACK_IMPORTED_MODULE_0__[\"default\"].homePage();\r\n  const openFormBtn = document.querySelector(\"#open-form-btn\");\r\n  openFormBtn.addEventListener(\"click\", _UI__WEBPACK_IMPORTED_MODULE_0__[\"default\"].openTaskForm);\r\n});\r\n\n\n//# sourceURL=webpack://todolist/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UI */ \"./src/UI.js\");\n\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", () => {\r\n  _UI__WEBPACK_IMPORTED_MODULE_0__[\"default\"].homePage();\r\n  const openFormBtn = document.querySelector(\"#open-form-btn\");\r\n  const closeFormBtn = document.querySelector(\"#close-form-btn\");\r\n  openFormBtn.addEventListener(\"click\", _UI__WEBPACK_IMPORTED_MODULE_0__[\"default\"].openTaskForm);\r\n  closeFormBtn.addEventListener(\"click\", _UI__WEBPACK_IMPORTED_MODULE_0__[\"default\"].closeTaskForm);\r\n});\r\n\n\n//# sourceURL=webpack://todolist/./src/index.js?");
 
 /***/ })
 
