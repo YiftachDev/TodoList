@@ -6,6 +6,10 @@ class Project {
   addTodo(task) {
     this.tasks.push(task);
   }
+  deleteTask(task) {
+    let taskIndex = this.tasks.indexOf(task);
+    this.tasks.splice(taskIndex, 1);
+  }
 }
 
 let inbox = new Project("inbox");

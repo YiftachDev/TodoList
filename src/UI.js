@@ -27,7 +27,6 @@ export default class UI {
       priority: document.querySelector("#priority").value,
       description: document.querySelector("#description").value,
     };
-    console.log(task.deadLine);
     let todo = new taskClass(
       task.title,
       task.description,
@@ -36,29 +35,60 @@ export default class UI {
     );
     inbox.addTodo(todo);
     UI.closeTaskForm();
-    UI.addTaskToPage(task);
+    UI.loadTasks(inbox);
   }
 
-  static addTaskToPage(task) {
+  static loadTasks(project) {
     const mainDiv = document.querySelector(".main-content");
-    const taskElement = document.createElement("div");
-    taskElement.classList.add("task");
-    taskElement.innerHTML = `
-    <div class="task-content">
-      <h2 class="task-title">${
-        task.title.charAt(0).toUpperCase() + task.title.slice(1)
-      }</h2>
-      <p class="task-description">${task.description}</p>
-    </div>
-    <div class="task-info">
-      <p class="task-deadline">${task.deadLine}</p>
-      <p class="task-priority">${task.priority} priority</p>
-      <div class="task-actions">
-      <button class="edit-button">Edit</button>
-      <button class="delete-button">Delete</button>
-    </div>
-    </div>
-    `;
-    mainDiv.appendChild(taskElement);
+    UI.clearTasks(mainDiv);
+    for (const task of project.tasks) {
+      console.log(task);
+      const taskElement = document.createElement("div");
+      taskElement.classList.add("task");
+      taskElement.innerHTML = `
+      <div class="task-content">
+        <h2 class="task-title">${
+          task.title.charAt(0).toUpperCase() + task.title.slice(1)
+        }</h2>
+        <p class="task-description">${task.description}</p>
+      </div>
+      <div class="task-info">
+        <p class="task-deadline">${task.deadLine}</p>
+        <p class="task-priority">${task.priority} priority</p>
+        <div class="task-actions">
+        </div>
+      </div>
+      `;
+      mainDiv.appendChild(taskElement);
+      const taskActions = document.querySelector(".task-actions");
+      const editButton = document.createElement("button");
+      editButton.classList.add("edit-button");
+      editButton.textContent = "Edit";
+      // editButton.onclick = () => ;
+      taskActions.appendChild(editButton);
+      const deleteButton = document.createElement("button");
+      deleteButton.classList.add("delete-button");
+      deleteButton.textContent = "Delete";
+      deleteButton.onclick = () => UI.removeTask(project, task);
+      taskActions.appendChild(deleteButton);
+      mainDiv.appendChild(taskElement);
+    }
+  }
+
+  static removeTask(project, task) {
+    project.deleteTask(task);
+    UI.loadTasks(project);
+  }
+
+  static clearTasks(mainDiv) {
+    const tasksToRemove = [];
+    for (const child of mainDiv.children) {
+      if (child.className === "task") {
+        tasksToRemove.push(child);
+      }
+    }
+    for (const taskToRemove of tasksToRemove) {
+      mainDiv.removeChild(taskToRemove);
+    }
   }
 }

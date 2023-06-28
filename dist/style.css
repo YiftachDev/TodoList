@@ -204,7 +204,29 @@ label {
   padding: 6px 10px;
   border: none;
   border-radius: 4px;
-  background-color: #ff6f00;
   color: #ffffff;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-button {
+  background-color: #ff6f00;
+  margin-bottom: 4px;
+}
+
+.edit-button:hover {
+  background-color: #a74800;
+}
+
+.delete-button {
+  background-color: red;
+}
+
+.delete-button:hover {
+  background-color: rgb(139, 0, 0);
+}
+
+.task-actions {
+  display: flex;
+  flex-direction: column;
 }
