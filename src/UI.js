@@ -64,7 +64,7 @@ export default class UI {
       const editButton = document.createElement("button");
       editButton.classList.add("edit-button");
       editButton.textContent = "Edit";
-      editButton.onclick = () => UI.openEditTaskForm();
+      editButton.onclick = () => UI.openEditTaskForm(task);
       lastTaskActions.appendChild(editButton);
       const deleteButton = document.createElement("button");
       deleteButton.classList.add("delete-button");
@@ -92,8 +92,12 @@ export default class UI {
     }
   }
 
-  static openEditTaskForm() {
+  static openEditTaskForm(task) {
     const editTaskForm = document.querySelector("#editTaskForm");
+    document.querySelector("#task-name").value = task.title;
+    document.querySelector("#date").value = task.deadline;
+    document.querySelector("#priority").value = task.priority;
+    document.querySelector("#description").value = task.description;
     editTaskForm.style.display = "block";
   }
 }
