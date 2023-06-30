@@ -1,4 +1,6 @@
 export default class UI {
+  static taskTitle;
+
   static createAddTodoButton() {
     const mainTitle = document.querySelector(".main-title");
     mainTitle.innerHTML += `<button id="open-form-btn">+</button>`;
@@ -64,7 +66,10 @@ export default class UI {
       const editButton = document.createElement("button");
       editButton.classList.add("edit-button");
       editButton.textContent = "Edit";
-      editButton.onclick = () => UI.openEditTaskForm(task);
+      editButton.onclick = () => {
+        UI.openEditTaskForm(task);
+        UI.taskTitle = task.title;
+      };
       lastTaskActions.appendChild(editButton);
       const deleteButton = document.createElement("button");
       deleteButton.classList.add("delete-button");
@@ -99,5 +104,18 @@ export default class UI {
     document.querySelector("#priority").value = task.priority;
     document.querySelector("#description").value = task.description;
     editTaskForm.style.display = "block";
+  }
+
+  static handleEditForm(project) {
+    const editTaskForm = document.querySelector("#editTaskForm");
+    const task = project.findTask(UI.taskTitle);
+    task.edit(
+      document.querySelector("#task-name").value,
+      document.querySelector("#description").value,
+      document.querySelector("#date").value,
+      document.querySelector("#priority").value
+    );
+    editTaskForm.style.display = "none";
+    UI.loadTasks(project);
   }
 }

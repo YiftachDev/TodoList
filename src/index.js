@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const openFormBtn = document.querySelector("#open-form-btn");
   const closeFormBtn = document.querySelectorAll(".close-form-btn");
   const submitFormBtn = document.querySelector("#addTaskBtn");
+  const submitEditFormBtn = document.querySelector("#editTaskBtn");
 
   openFormBtn.addEventListener("click", () => {
     UI.openTaskForm();
@@ -19,5 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   closeFormBtn.forEach(btn => {
     btn.addEventListener("click", UI.closeTaskForm);
+  });
+
+  submitEditFormBtn.addEventListener("click", () => {
+    UI.handleEditForm(inbox);
+    console.log("test");
   });
 });
