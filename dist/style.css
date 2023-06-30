@@ -147,7 +147,7 @@ label {
   justify-content: center;
 }
 
-#close-form-btn {
+.close-form-btn {
   margin-left: auto;
   background-color: white;
   border: none;
@@ -155,7 +155,7 @@ label {
   transition: all 0.3s;
 }
 
-#close-form-btn:hover {
+.close-form-btn:hover {
   color: red;
   cursor: pointer;
   font-size: 30px;

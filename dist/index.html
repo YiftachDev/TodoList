@@ -29,10 +29,37 @@
       <div class="main">
         <div class="main-title"></div>
         <div class="main-content">
-          <div class="form" style="display: none">
+          <div class="form" id="addForm" style="display: none">
             <div class="head-form">
               <h1 id="form-title">New Task</h1>
-              <button id="close-form-btn">x</button>
+              <button class="close-form-btn">x</button>
+            </div>
+            <form action="" id="addTaskForm">
+              <label for="add-`task-name">Task Name:</label>
+              <input type="text" id="add-task-name" />
+              <label for="add-date">Deadline:</label>
+              <input type="date" id="add-date" />
+              <label for="add-priority">Priority</label>
+              <select name="" id="add-priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+              <label for="add-description">Description:</label>
+              <textarea
+                name=""
+                id="add-description"
+                cols="30"
+                rows="10"
+                style="resize: none"
+              ></textarea>
+              <button type="button" id="addTaskBtn">Add Task</button>
+            </form>
+          </div>
+          <div class="form" id="editTaskForm" style="display: none">
+            <div class="head-form">
+              <h1 id="form-title">Edit Task</h1>
+              <button class="close-form-btn">x</button>
             </div>
             <form action="" id="addTaskForm">
               <label for="task-name">Task Name:</label>
@@ -53,9 +80,8 @@
                 rows="10"
                 style="resize: none"
               ></textarea>
-              <button type="button" id="addTaskBtn">Add Task</button>
+              <button type="button" id="editTaskBtn">Save</button>
             </form>
-          </div>
         </div>
       </div>
     </div>

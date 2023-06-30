@@ -5,7 +5,7 @@ import Task from "./Todo";
 document.addEventListener("DOMContentLoaded", () => {
   UI.homePage();
   const openFormBtn = document.querySelector("#open-form-btn");
-  const closeFormBtn = document.querySelector("#close-form-btn");
+  const closeFormBtn = document.querySelectorAll(".close-form-btn");
   const submitFormBtn = document.querySelector("#addTaskBtn");
 
   openFormBtn.addEventListener("click", () => {
@@ -17,5 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     UI.handleForm(Task, inbox);
   });
 
-  closeFormBtn.addEventListener("click", UI.closeTaskForm);
+  closeFormBtn.forEach(btn => {
+    btn.addEventListener("click", UI.closeTaskForm);
+  });
 });
