@@ -1,9 +1,15 @@
 export default class Task {
-  constructor(title, description, deadline, priority, index) {
+  constructor(title, description, deadline, priority) {
     this.title = title;
     this.description = description;
     this.deadline = deadline;
     this.priority = priority;
-    this.index = index;
+  }
+
+  edit(title, description, deadline, priority) {
+    this.title = title;
+    this.description = description;
+    this.deadline = deadline;
+    this.priority = priority;
   }
 }

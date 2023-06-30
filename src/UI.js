@@ -60,17 +60,18 @@ export default class UI {
       </div>
       `;
       mainDiv.appendChild(taskElement);
-      const taskActions = document.querySelector(".task-actions");
+      const taskActionsAll = document.querySelectorAll(".task-actions");
+      const lastTaskActions = taskActionsAll.item(taskActionsAll.length - 1);
       const editButton = document.createElement("button");
       editButton.classList.add("edit-button");
       editButton.textContent = "Edit";
       // editButton.onclick = () => ;
-      taskActions.appendChild(editButton);
+      lastTaskActions.appendChild(editButton);
       const deleteButton = document.createElement("button");
       deleteButton.classList.add("delete-button");
       deleteButton.textContent = "Delete";
       deleteButton.onclick = () => UI.removeTask(project, task);
-      taskActions.appendChild(deleteButton);
+      lastTaskActions.appendChild(deleteButton);
       mainDiv.appendChild(taskElement);
     }
   }
