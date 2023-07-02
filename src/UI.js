@@ -6,10 +6,12 @@ export default class UI {
     mainTitle.innerHTML += `<button id="open-form-btn">+</button>`;
   }
 
-  static homePage() {
+  static init(inbox, projects) {
     const mainTitle = document.querySelector(".main-title");
     mainTitle.innerHTML += `<h1 id="inbox">Inbox</h1>`;
     UI.createAddTodoButton();
+    UI.loadTasks(inbox);
+    UI.loadProjects(projects);
   }
 
   static openTaskForm() {
@@ -161,7 +163,24 @@ export default class UI {
   }
 
   static loadProjects(projects) {
-    for (project of projects) {
+    const projectsDiv = document.querySelector(".projects-list");
+    console.log(projects);
+    UI.clearProjects(projectsDiv);
+    for (const project of projects) {
+      let projectEl = document.createElement("button");
+      projectEl.classList.add("project");
+      projectEl.innerHTML = project.name;
+      projectsDiv.appendChild(projectEl);
+    }
+  }
+
+  static clearProjects(projectsDiv) {
+    const projectsToRemove = [];
+    for (const child of projectsDiv.children) {
+      projectsToRemove.push(child);
+    }
+    for (const projectToRemove of projectsToRemove) {
+      projectsDiv.removeChild(projectToRemove);
     }
   }
 }
