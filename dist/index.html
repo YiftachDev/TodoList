@@ -23,7 +23,14 @@
         </ul>
         <div class="projects">
           <p id="title-projects">Projects</p>
-          <button class="btn">+ Add Project</button>
+          <button class="btn" id="openAddProjectForm">+ Add Project</button>
+          <form action="" style="display: none;" id="add-project-form">
+            <input type="text" placeholder="New Project" id="new-project-input">
+            <div class="project-buttons-menu">
+              <button class="btn-menu" id="add-project-btn" type="button">Add</button>
+              <button class="btn-menu" id="cancel-btn" type="button">Cancel</button>
+            </div>
+          </form>
         </div>
       </div>
       <div class="main">

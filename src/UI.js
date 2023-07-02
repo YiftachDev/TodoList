@@ -135,4 +135,9 @@ export default class UI {
       taskEl.style.background = "#ffffff";
     }
   }
+
+  static displayAddProjectForm() {
+    const form = document.querySelector("#add-project-form");
+    form.style.display = "block";
+  }
 }

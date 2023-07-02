@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeFormBtn = document.querySelectorAll(".close-form-btn");
   const submitFormBtn = document.querySelector("#addTaskBtn");
   const submitEditFormBtn = document.querySelector("#editTaskBtn");
+  const openAddProjectFormBtn = document.querySelector("#openAddProjectForm");
 
   openFormBtn.addEventListener("click", () => {
     UI.openTaskForm();
@@ -26,4 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     UI.handleEditForm(inbox);
     console.log("test");
   });
+
+  openAddProjectFormBtn.addEventListener("click", UI.displayAddProjectForm);
 });

@@ -240,3 +240,44 @@ label {
 .checked {
   background-color: silver;
 }
+
+#new-project-input {
+  width: 250px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid black;
+  padding: 4px;
+  transition: box-shadow 0.13s, border 0.13s;
+}
+
+#new-project-input:focus {
+  outline: none;
+  border: 2px solid rgb(62, 162, 255);
+  box-shadow: 2px 2px 5px rgb(62, 162, 255);
+}
+
+.btn-menu {
+  width: 80px;
+  padding: 8px;
+  margin-top: 12px;
+  border: 1px solid black;
+  border-radius: 8px;
+  transition: 0.13s opacity;
+}
+
+.btn-menu:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.btn-menu:active {
+  opacity: 0.5;
+}
+
+#add-project-btn {
+  background-color: lightgreen;
+}
+
+#cancel-btn {
+  background-color: lightcoral;
+}
