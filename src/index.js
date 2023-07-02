@@ -1,4 +1,5 @@
 import UI from "./UI";
+import Project from "./Project";
 import { inbox } from "./Project";
 import Task from "./Todo";
 
@@ -10,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitEditFormBtn = document.querySelector("#editTaskBtn");
   const openAddProjectFormBtn = document.querySelector("#openAddProjectForm");
   const closeProjectForm = document.querySelector("#cancel-btn");
+  const addProjectBtn = document.querySelector("#add-project-btn");
+  const projects = [];
 
   openFormBtn.addEventListener("click", () => {
     UI.openTaskForm();
@@ -32,4 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
   openAddProjectFormBtn.addEventListener("click", UI.displayAddProjectForm);
 
   closeProjectForm.addEventListener("click", UI.closeProjectForm);
+
+  addProjectBtn.addEventListener("click", () => {
+    let project = UI.createProject(Project, projects);
+    if (project == null) return;
+    projects.push(project);
+    console.log(projects);
+  });
 });

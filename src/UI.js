@@ -22,7 +22,7 @@ export default class UI {
     forms.forEach(form => (form.style.display = "none"));
   }
 
-  static handleForm(taskClass, inbox) {
+  static handleForm(taskClass, project) {
     const task = {
       title: document.querySelector("#add-task-name").value,
       deadLine: document.querySelector("#add-date").value,
@@ -35,9 +35,9 @@ export default class UI {
       task.deadLine,
       task.priority
     );
-    inbox.addTodo(todo);
+    project.addTodo(todo);
     UI.closeTaskForm();
-    UI.loadTasks(inbox);
+    UI.loadTasks(project);
   }
 
   static loadTasks(project) {
@@ -138,11 +138,30 @@ export default class UI {
 
   static displayAddProjectForm() {
     const form = document.querySelector("#add-project-form");
+    document.querySelector("#new-project-input").value = "";
     form.style.display = "block";
   }
 
   static closeProjectForm() {
     const form = document.querySelector("#add-project-form");
     form.style.display = "none";
+  }
+
+  static createProject(projectClass, projects) {
+    const name = document.querySelector("#new-project-input").value;
+    for (const p of projects) {
+      if (p.name === name) {
+        UI.closeProjectForm();
+        return;
+      }
+    }
+    let project = new projectClass(name);
+    UI.closeProjectForm();
+    return project;
+  }
+
+  static loadProjects(projects) {
+    for (project of projects) {
+    }
   }
 }
