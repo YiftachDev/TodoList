@@ -140,4 +140,9 @@ export default class UI {
     const form = document.querySelector("#add-project-form");
     form.style.display = "block";
   }
+
+  static closeProjectForm() {
+    const form = document.querySelector("#add-project-form");
+    form.style.display = "none";
+  }
 }

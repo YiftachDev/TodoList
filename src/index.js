@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitFormBtn = document.querySelector("#addTaskBtn");
   const submitEditFormBtn = document.querySelector("#editTaskBtn");
   const openAddProjectFormBtn = document.querySelector("#openAddProjectForm");
+  const closeProjectForm = document.querySelector("#cancel-btn");
 
   openFormBtn.addEventListener("click", () => {
     UI.openTaskForm();
@@ -29,4 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   openAddProjectFormBtn.addEventListener("click", UI.displayAddProjectForm);
+
+  closeProjectForm.addEventListener("click", UI.closeProjectForm);
 });
