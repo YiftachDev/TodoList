@@ -47,18 +47,22 @@ export default class UI {
       const taskElement = document.createElement("div");
       taskElement.classList.add("task");
       taskElement.innerHTML = `
-      <div class="task-content">
-        <h2 class="task-title">${
-          task.title.charAt(0).toUpperCase() + task.title.slice(1)
-        }</h2>
-        <p class="task-description">${task.description}</p>
+    <div class="check-box-div">
+      <form id="checkbox-form">
+      </form>
+    </div>
+    <div class="task-content">
+      <h2 class="task-title">${
+        task.title.charAt(0).toUpperCase() + task.title.slice(1)
+      }</h2>
+      <p class="task-description">${task.description}</p>
+    </div>
+    <div class="task-info">
+      <p class="task-deadline">${task.deadline}</p>
+      <p class="task-priority">${task.priority} priority</p>
+      <div class="task-actions">
       </div>
-      <div class="task-info">
-        <p class="task-deadline">${task.deadline}</p>
-        <p class="task-priority">${task.priority} priority</p>
-        <div class="task-actions">
-        </div>
-      </div>
+    </div>
       `;
       mainDiv.appendChild(taskElement);
       const taskActionsAll = document.querySelectorAll(".task-actions");
@@ -77,6 +81,11 @@ export default class UI {
       deleteButton.onclick = () => UI.removeTask(project, task);
       lastTaskActions.appendChild(deleteButton);
       mainDiv.appendChild(taskElement);
+      const checkboxInput = document.createElement("input");
+      checkboxInput.type = "checkbox";
+      checkboxInput.onchange = () => UI.checked(checkboxInput, taskElement);
+      const checkBoxForm = document.querySelector("#checkbox-form");
+      checkBoxForm.appendChild(checkboxInput);
     }
   }
 
@@ -117,5 +126,13 @@ export default class UI {
     );
     editTaskForm.style.display = "none";
     UI.loadTasks(project);
+  }
+
+  static checked(checkbox, taskEl) {
+    if (checkbox.checked == true) {
+      taskEl.style.background = "silver";
+    } else {
+      taskEl.style.background = "#ffffff";
+    }
   }
 }

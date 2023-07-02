@@ -230,3 +230,13 @@ label {
   display: flex;
   flex-direction: column;
 }
+
+.check-box-div {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.checked {
+  background-color: silver;
+}
