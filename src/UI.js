@@ -1,5 +1,6 @@
 export default class UI {
   static taskTitle;
+  static currentProject;
 
   static createAddTodoButton() {
     const mainTitle = document.querySelector(".main-title");
@@ -8,7 +9,7 @@ export default class UI {
 
   static init(inbox, projects) {
     const mainTitle = document.querySelector(".main-title");
-    mainTitle.innerHTML += `<h1 id="inbox">Inbox</h1>`;
+    mainTitle.innerHTML += `<h1 id="inbox" class="project-title">Inbox</h1>`;
     UI.createAddTodoButton();
     UI.loadTasks(inbox);
     UI.loadProjects(projects);
@@ -164,12 +165,14 @@ export default class UI {
 
   static loadProjects(projects) {
     const projectsDiv = document.querySelector(".projects-list");
-    console.log(projects);
     UI.clearProjects(projectsDiv);
     for (const project of projects) {
       let projectEl = document.createElement("button");
       projectEl.classList.add("project");
       projectEl.innerHTML = project.name;
+      projectEl.addEventListener("click", () => {
+        UI.loadProject(project);
+      });
       projectsDiv.appendChild(projectEl);
     }
   }
@@ -182,5 +185,17 @@ export default class UI {
     for (const projectToRemove of projectsToRemove) {
       projectsDiv.removeChild(projectToRemove);
     }
+  }
+
+  static loadProject(project) {
+    const mainTitle = document.querySelector(".main-title");
+    mainTitle.innerHTML = `<h1 class="project-title">${project.name}</h1>`;
+    UI.currentProject = project;
+    UI.createAddTodoButton();
+    UI.loadTasks(project);
+    const openFormBtn = document.querySelector("#open-form-btn");
+    openFormBtn.addEventListener("click", () => {
+      UI.openTaskForm();
+    });
   }
 }

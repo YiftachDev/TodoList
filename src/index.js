@@ -5,6 +5,7 @@ import Task from "./Todo";
 
 document.addEventListener("DOMContentLoaded", () => {
   const projects = [];
+  UI.currentProject = inbox;
   UI.init(inbox, projects);
   const openFormBtn = document.querySelector("#open-form-btn");
   const closeFormBtn = document.querySelectorAll(".close-form-btn");
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const openAddProjectFormBtn = document.querySelector("#openAddProjectForm");
   const closeProjectForm = document.querySelector("#cancel-btn");
   const addProjectBtn = document.querySelector("#add-project-btn");
+  const inboxEl = document.querySelector("#inboxBtn");
 
   openFormBtn.addEventListener("click", () => {
     UI.openTaskForm();
@@ -20,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   submitFormBtn.addEventListener("click", e => {
     e.preventDefault();
-    UI.handleForm(Task, inbox);
+    UI.handleForm(Task, UI.currentProject);
   });
 
   closeFormBtn.forEach(btn => {
@@ -28,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   submitEditFormBtn.addEventListener("click", () => {
-    UI.handleEditForm(inbox);
+    UI.handleEditForm(UI.currentProject);
     console.log("test");
   });
 
@@ -41,5 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (project == null) return;
     projects.push(project);
     UI.loadProjects(projects);
+    console.log(projects);
+  });
+
+  inboxEl.addEventListener("click", () => {
+    UI.currentProject = inbox;
+    UI.loadProject(UI.currentProject);
   });
 });
