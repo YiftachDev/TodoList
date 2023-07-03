@@ -86,8 +86,10 @@ export default class UI {
       mainDiv.appendChild(taskElement);
       const checkboxInput = document.createElement("input");
       checkboxInput.type = "checkbox";
-      checkboxInput.onchange = () => UI.checked(checkboxInput, taskElement);
+      checkboxInput.onchange = () =>
+        UI.checked(checkboxInput, taskElement, task);
       const checkBoxForm = document.querySelector("#checkbox-form");
+      this.checkForTaskChecked(task, taskElement, checkboxInput);
       checkBoxForm.appendChild(checkboxInput);
     }
   }
@@ -131,11 +133,13 @@ export default class UI {
     UI.loadTasks(project);
   }
 
-  static checked(checkbox, taskEl) {
+  static checked(checkbox, taskEl, task) {
     if (checkbox.checked == true) {
       taskEl.style.background = "silver";
+      task.checked = true;
     } else {
       taskEl.style.background = "#ffffff";
+      task.checked = false;
     }
   }
 
@@ -197,5 +201,15 @@ export default class UI {
     openFormBtn.addEventListener("click", () => {
       UI.openTaskForm();
     });
+  }
+
+  static checkForTaskChecked(task, taskEl, checkbox) {
+    if (task.checked) {
+      taskEl.style.background = "silver";
+      checkbox.checked = true;
+    } else {
+      taskEl.style.background = "#ffffff";
+      checkbox.checked = false;
+    }
   }
 }
